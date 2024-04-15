@@ -1,0 +1,11 @@
+version: "3.2"
+services:
+    demo:
+        container_name: demo
+        image: mobarmy/demo:1.0.0-SNAPSHOT
+        build: .
+        ports:
+            - 9091:9091
+        command: java -jar demo-1.0.0-SNAPSHOT.jar --spring.config.location=/usr/src/application.properties
+        volumes:
+            - ./src/main/resources/application.properties:/usr/src/application.properties

@@ -2,7 +2,7 @@ version: "3.2"
 services:
     demo:
         container_name: demo
-        image: mobarmy/demo:1.0.0-SNAPSHOT
+        image: demo:1.0.0-SNAPSHOT
         build: .
         ports:
             - 9091:9091

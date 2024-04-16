@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: api-01
+    namespace: demo
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: api-01
+    template:
+        metadata:
+            name: api-01
+            labels:
+                app: api-01
+        spec:
+            containers:
+                - name: api-01
+                  image: 10.252.107.27:5000/demo:1.0.3-SNAPSHOT
+                  command: ["/bin/sh", "-c"]
+                  args:
+                      - java -jar demo-1.0.0-SNAPSHOT.jar --spring.config.location=/usr/src/application.properties
+                  resources:
+                      limits:
+                          memory: "512Mi"
+                          cpu: "500m"
+                  ports:
+                        - containerPort: 9091
+                  volumeMounts:
+                        - mountPath: /usr/src/
+                          name: properties-api-01
+
+            volumes:
+                - name: properties-api-01
+                  configMap:
+                        name: api-01
+                        items:
+                            -   key: application.properties
+                                path: application.properties

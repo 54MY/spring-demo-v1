@@ -45,7 +45,7 @@ public class GeneralResource {
 
     private synchronized void requestLog(HttpServletRequest request) {
         logger.info(" <= " + request.getRemoteHost() + " {method:" + request.getMethod()
-                        + ", URI:" + request.getRequestURI() + ", query:" + request.getQueryString() + " PROBANDOOOOOO !!!!"+"}");
+                        + ", URI:" + request.getRequestURI() + ", query:" + request.getQueryString() +"}");
     }
 
 }

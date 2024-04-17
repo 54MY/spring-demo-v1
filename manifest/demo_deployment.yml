@@ -16,7 +16,7 @@ spec:
         spec:
             containers:
                 - name: api-01
-                  image: 10.252.107.27:5000/demo:1.0.3-SNAPSHOT
+                  image: 10.252.107.27:5000/demo:1.0.6-SNAPSHOT
                   command: ["/bin/sh", "-c"]
                   args:
                       - java -jar demo-1.0.0-SNAPSHOT.jar --spring.config.location=/usr/src/application.properties
